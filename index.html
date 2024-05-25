@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link id="manifest" rel="manifest" href="/assets/other/webmanifest.json" />
+    <title>Play Freegame and Have Fun</title>
+    <meta name="keywords" content="Online games, free games, h5 games, free online games, browser games, mobile games, popular games, puzzle games, action games, adventure games, sport games, arcade games, casual games, racing games, ball games, shooting games, gun games"
+    />
+    <meta name="description" content="Play the best games on freegamehub.top. Including sport games, arcade games and more. Instantly play online for free!">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65V24K4EGF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-65V24K4EGF');
+    </script>
+    <meta name="google-adsense-account" content="ca-pub-4694110216243855">
+
+    <script type="text/javascript">
+        var adsbygoogleScript = "<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4694110216243855\" crossorigin=\"anonymous\"><\/script>";
+
+        var adsbygoogleBottomScript = "<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>";
+    </script>
+    <!-- TikTok ads -->
+    <script>
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+        
+          ttq.load('tk_code_tihuan');
+          ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok ads end -->
+    <script type="text/javascript" src="/assets/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/common.js"></script>
+    <script type="text/javascript" src="/assets/js/freegameTrackAdClick.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+    <style>
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        .globalMain {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh
+        }
+
+        .globalMain:after {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            content: ""
+        }
+
+        .divUrl {
+            display: none;
+            overflow: hidden;
+            z-index: 4;
+            width: 100vw;
+            height: 0;
+            font-weight: 800;
+            font-size: 20px;
+            color: #747474;
+            transition: height .5s
+        }
+
+        .mainStyle {
+            display: flex;
+            overflow-x: hidden;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: calc(100vh - 125px)
+        }
+
+        .clickEnlarge:active {
+            -webkit-tap-highlight-color: transparent;
+            animation: clickEnlarge 0.2s linear;
+        }
+
+        @keyframes clickEnlarge {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 3px 18px 0 rgb(0 0 0 / 16%);
+            }
+            100% {
+                transform: scale(1.4);
+                box-shadow: 0 3px 18px 0 rgb(0 0 0 / 16%);
+            }
+        }
+
+        body {
+            font-family: Poppins, serif
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .imgSize {
+            width: 94px;
+            height: 94px
+        }
+
+        .divBorder {
+            position: relative;
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 6px 12px 0 rgb(0 0 0/24%)
+        }
+
+        .historyIcon,
+        .hotIcon {
+            position: absolute;
+            right: -6px;
+            top: -2px
+        }
+
+        .bright {
+            overflow: hidden
+        }
+
+        .bright,
+        .bright:after {
+            z-index: 1;
+            width: 100%;
+            height: 100%
+        }
+
+        .bright:after {
+            position: absolute;
+            top: 0;
+            background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .5) 25%, #fff 50%, hsla(0, 0%, 100%, .5) 75%, hsla(0, 0%, 100%, 0));
+            content: "";
+            -webkit-animation: bright 5.5s infinite;
+            animation: bright 5.5s infinite
+        }
+
+        @keyframes bright {
+            0% {
+                transform: translateX(-180%) skewX(45deg)
+            }
+            to {
+                transform: translateX(420%) skewX(45deg)
+            }
+        }
+
+        @-webkit-keyframes bright {
+            0% {
+                transform: translateX(-180%) skewX(45deg)
+            }
+            to {
+                transform: translateX(420%) skewX(45deg)
+            }
+        }
+
+        .imgSpacing {
+            padding: 0 7px
+        }
+
+        .trembling {
+            animation: trembling 4s linear infinite backwards;
+            -webkit-animation: trembling 4s linear infinite backwards;
+            -moz-animation: trembling 4s linear infinite backwards
+        }
+
+        @-webkit-keyframes trembling {
+            26% {
+                transform: rotate(0deg) scale(1);
+                -webkit-transform: rotate(0deg) scale(1)
+            }
+            28% {
+                transform: rotate(-2deg) scale(1.04);
+                -webkit-transform: rotate(-2deg) scale(1.04)
+            }
+            32% {
+                transform: rotate(1deg) scale(1.01);
+                -webkit-transform: rotate(1deg) scale(1.01)
+            }
+            34% {
+                transform: rotate(-2deg) scale(1.02);
+                -webkit-transform: rotate(-2deg) scale(1.02)
+            }
+            36% {
+                transform: rotate(3deg) scale(1);
+                -webkit-transform: rotate(3deg) scale(1)
+            }
+            39% {
+                transform: rotate(-1deg) scale(1);
+                -webkit-transform: rotate(-1deg) scale(1)
+            }
+            44% {
+                transform: rotate(0deg) scale(1);
+                -webkit-transform: rotate(0deg) scale(1)
+            }
+        }
+
+        @keyframes trembling {
+            26% {
+                transform: rotate(0deg) scale(1);
+                -webkit-transform: rotate(0deg) scale(1)
+            }
+            28% {
+                transform: rotate(-2deg) scale(1.04);
+                -webkit-transform: rotate(-2deg) scale(1.04)
+            }
+            32% {
+                transform: rotate(1deg) scale(1.01);
+                -webkit-transform: rotate(1deg) scale(1.01)
+            }
+            34% {
+                transform: rotate(-2deg) scale(1.02);
+                -webkit-transform: rotate(-2deg) scale(1.02)
+            }
+            36% {
+                transform: rotate(3deg) scale(1);
+                -webkit-transform: rotate(3deg) scale(1)
+            }
+            39% {
+                transform: rotate(-1deg) scale(1);
+                -webkit-transform: rotate(-1deg) scale(1)
+            }
+            44% {
+                transform: rotate(0deg) scale(1);
+                -webkit-transform: rotate(0deg) scale(1)
+            }
+        }
+
+        @-webkit-keyframes move {
+            0% {
+                transform: translateX(var(--card-ul-width-start))
+            }
+            30% {
+                transform: translateX(var(--card-ul-width-middle1))
+            }
+            70% {
+                transform: translateX(var(--card-ul-width-middle2))
+            }
+            to {
+                transform: translateX(var(--card-ul-width-end))
+            }
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(var(--card-ul-width-start))
+            }
+            30% {
+                transform: translateX(var(--card-ul-width-middle1))
+            }
+            70% {
+                transform: translateX(var(--card-ul-width-middle2))
+            }
+            to {
+                transform: translateX(var(--card-ul-width-end))
+            }
+        }
+
+        @media screen and (min-width:879px) {
+            .cardLayout {
+                display: grid;
+                height: 100%;
+                grid-auto-rows: 85px;
+                grid-gap: 16px;
+                grid-template-columns: repeat(8, 85px)
+            }
+            .card {
+                position: relative;
+                z-index: 2;
+                border-radius: 15px;
+                height: 100%;
+                box-shadow: 0 3px 18px 0 rgb(0 0 0/16%);
+                grid-row: span 4;
+                grid-column: span 4;
+                overflow: hidden;
+            }
+        }
+
+        @media screen and (min-width:325px) and (max-width:878px) {
+            .cardLayout {
+                display: grid;
+                height: 100%;
+                grid-auto-rows: 73px;
+                grid-gap: 16px;
+                grid-template-columns: repeat(4, 73px)
+            }
+            .card {
+                position: relative;
+                z-index: 2;
+                border-radius: 15px;
+                height: 100%;
+                box-shadow: 0 3px 18px 0 rgb(0 0 0/16%);
+                grid-row: span 4;
+                grid-column: span 4
+            }
+        }
+
+        @media screen and (min-width:104px) and (max-width:324px) {
+            .cardLayout {
+                display: grid;
+                height: 100%;
+                grid-auto-rows: 66px;
+                grid-gap: 16px;
+                grid-template-columns: repeat(4, 66px)
+            }
+            .card {
+                position: relative;
+                z-index: 2;
+                border-radius: 15px;
+                height: 100%;
+                box-shadow: 0 3px 18px 0 rgb(0 0 0/16%);
+                grid-row: span 4;
+                grid-column: span 4
+            }
+        }
+
+        @media screen and (max-width:844px) and (min-width:560px) and (min-height:300px) and (max-height:440px) {
+            .cardLayout[css-index] {
+                grid-auto-rows: 50px;
+                grid-gap: 16px;
+                grid-template-columns: repeat(8, 50px)
+            }
+        }
+
+        .globalBtn[css-index] {
+            position: fixed;
+            top: 1.5%;
+            width: 94px;
+            height: 94px;
+            box-shadow: 0 0 15px rgba(124, 124, 126, .68627)
+        }
+
+        .globalBtn[css-index],
+        img[css-index] {
+            border-radius: 15px
+        }
+
+        .indexStyle[css-index] {
+            height: 100%
+        }
+
+        ins[css-index] {
+            position: relative;
+            z-index: 2
+        }
+
+        ins.adsbygoogle[data-ad-status=unfilled][css-index] {
+            display: none !important
+        }
+
+        .add_button_tohome_close[css-index] {
+            display: flex;
+            position: absolute;
+            right: -11px;
+            top: -18px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 6px rgb(0 0 0/12%);
+            cursor: pointer
+        }
+
+        .add_button_tohome[css-index] {
+            display: none;
+            position: fixed;
+            left: 50%;
+            bottom: 100px;
+            z-index: 100;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            width: 220px;
+            background: #378ef5;
+            box-shadow: 0 4px 16px rgb(0 0 0/30%);
+            cursor: pointer;
+            line-height: 20px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #fff;
+            transform: translateX(-50%);
+            -moz-box-shadow: 0 4px 16px rgb(0 0 0/30%);
+            -webkit-box-shadow: 0 4px 16px rgb(0 0 0/30%)
+        }
+
+        .add_button_tohome>span[css-index] {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url(/assets/images/addtohome.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: contain;
+            vertical-align: middle
+        }
+    </style>
+    <style>
+        .nine_grid_area[css-ninegridarea] {
+            box-sizing: border-box;
+            padding: 16px;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-tap-highlight-color: rgba (255, 255, 255, 0);
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .nine_grid_area>div[css-ninegridarea] {
+            display: grid;
+            --width: calc(33.33% - 10.6656px);
+            width: 100%;
+            --height: calc(33.33% - 10.6656px);
+            height: 100%;
+            grid-template-columns: repeat(3, var(--width));
+            grid-template-rows: repeat(3, var(--height));
+            grid-gap: 16px 16px
+        }
+
+        .nine_grid_area>div>div[css-ninegridarea] {
+            position: relative
+        }
+
+        .nine_grid_area>div img[css-ninegridarea] {
+            border-radius: 15px;
+            width: 100%;
+            height: 100%
+        }
+
+        .nine_grid_area .leftTop[css-ninegridarea] {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3
+        }
+
+        .nine_grid_area .rightTop[css-ninegridarea] {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3
+        }
+
+        .nine_grid_area .leftBottom[css-ninegridarea] {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 4
+        }
+
+        .nine_grid_area .rightBottom[css-ninegridarea] {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 4
+        }
+    </style>
+    <style>
+        .three_game_area[css-threegamearea],
+        img[css-threegamearea] {
+            -webkit-touch-callout: none
+        }
+
+        .three_game_area[css-threegamearea] {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+            border-radius: 12px;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-tap-highlight-color: rgba (255, 255, 255, 0);
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .three_game_area_header[css-threegamearea] {
+            overflow: hidden;
+            padding-left: 16px;
+            width: 90%;
+            height: 72px;
+            line-height: 60px;
+            text-overflow: ellipsis;
+            font-family: Helvetica;
+            font-size: 25px;
+            color: #000;
+            white-space: nowrap
+        }
+
+        .three_game_area_static>.three_game_area_header[css-threegamearea] {
+            padding: 0 16px;
+            width: auto
+        }
+
+        .three_game_area_line[css-threegamearea] {
+            margin-left: 16px;
+            border-radius: 1px;
+            width: 292px;
+            height: 2px;
+            background: #e3e3e5
+        }
+
+        .three_game_area_static>.three_game_area_line[css-threegamearea] {
+            margin: 0 16px;
+            width: auto
+        }
+
+        .three_game_area_context[css-threegamearea] {
+            overflow: hidden;
+            position: relative;
+            height: 268px;
+            cursor: pointer
+        }
+
+        .threeGameAreaContextDetailAdsCls {
+            overflow: hidden;
+            height: 90px;
+        }
+
+        .three_game_area_static>.three_game_area_context[css-threegamearea] {
+            width: 100%
+        }
+
+        .three_game_area_context[css-threegamearea]::-webkit-scrollbar {
+            display: none
+        }
+
+        .three_game_area_context>div[css-threegamearea] {
+            display: flex;
+            position: absolute;
+            left: 0;
+            transition: left .5s
+        }
+
+        .three_game_area_static .three_game_area_context>div[css-threegamearea] {
+            width: 100%
+        }
+
+        .three_game_area_context_detail[css-threegamearea] {
+            display: flex;
+            padding-right: 10px;
+            padding-top: 5px;
+            height: 33%
+        }
+
+        .three_game_area_static .three_game_area_context_detail[css-threegamearea] {
+            width: 100%
+        }
+
+        .three_game_area_context_detail[css-threegamearea]:last-child {
+            padding-right: 40px !important
+        }
+
+        .three_game_area_static .three_game_area_context_detail[css-threegamearea]:last-child {
+            padding-right: 0 !important
+        }
+
+        .three_game_area_context_detail>a>div[css-threegamearea]:first-child {
+            margin-left: 16px;
+            width: 83px;
+            height: 83px
+        }
+
+        .three_game_area_context_detail>a>div:first-child>img[css-threegamearea] {
+            border-radius: 15px;
+            width: 78px;
+            height: 78px
+        }
+
+        .three_game_area_context_detail .context_title[css-threegamearea] {
+            display: flex;
+            flex: 1;
+            height: 83px
+        }
+
+        .three_game_area_static .three_game_area_context_detail .context_title[css-threegamearea] {
+            padding-right: 16px
+        }
+
+        .three_game_area_context_detail .context_title>div[css-threegamearea]:first-child {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 7px;
+            width: 140px
+        }
+
+        .three_game_area_context_detail .context_title>div:first-child>div[css-threegamearea]:first-child {
+            overflow: hidden;
+            width: 217px;
+            height: 20px;
+            text-overflow: ellipsis;
+            font-family: Helvetica;
+            font-weight: 700;
+            font-size: 17px;
+            color: #000;
+            white-space: nowrap
+        }
+
+        .three_game_area_context_detail .context_title>div:first-child>div[css-threegamearea]:last-child {
+            overflow: hidden;
+            margin-top: 5px;
+            width: 100%;
+            height: 20px;
+            text-overflow: ellipsis;
+            font-family: Helvetica;
+            font-weight: 400;
+            font-size: 15px;
+            color: #747474;
+            white-space: nowrap
+        }
+
+        .three_game_area_context_detail .context_title[css-threegamearea]>:last-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            margin-top: 27px
+        }
+
+        .three_game_area_static .three_game_area_context_detail .context_title[css-threegamearea]>:last-child {
+            justify-content: flex-end
+        }
+
+        .three_game_area_context_detail .context_title>div:last-child>div[css-threegamearea].playtext {
+            border-radius: 26px;
+            width: 60px;
+            height: 21px;
+            background: #e3e3e5;
+            line-height: 21px;
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: 700;
+            font-size: 15px;
+            color: #378ef5
+        }
+
+        @media screen and (max-width:328px) {
+            .three_game_area>.three_game_area_header[css-threegamearea] {
+                font-weight: 700
+            }
+            .three_game_area_context[css-threegamearea] {
+                left: 8px;
+                top: 3px;
+                height: 400px;
+                transform: scaleX(.95) scaleY(.9)
+            }
+            .three_game_area_context>div[css-threegamearea]:first-child {
+                top: 0
+            }
+            .three_game_area_context>div[css-threegamearea]:nth-child(2) {
+                top: 90px
+            }
+            .three_game_area_context>div[css-threegamearea]:nth-child(3) {
+                top: 180px
+            }
+            .three_game_area_line[css-threegamearea] {
+                position: relative;
+                top: 10px
+            }
+            .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                display: block;
+                position: absolute;
+                top: 90px;
+                border-radius: 1px;
+                width: 210px;
+                height: 2px;
+                background: #e3e3e5;
+                content: ""
+            }
+            .three_game_area_context_detail[css-threegamearea] {
+                position: relative;
+                left: -16px;
+                padding-right: 0
+            }
+            .three_game_area_static .three_game_area_context_detail .context_title[css-threegamearea] {
+                padding-right: 0
+            }
+            .three_game_area_context_detail .context_title>div:first-child>div[css-threegamearea]:first-child {
+                width: 205px
+            }
+        }
+
+        @media screen and (min-width:329px) and (max-width:374px) {
+            .three_game_area>.three_game_area_header[css-threegamearea] {
+                font-weight: 700
+            }
+            .three_game_area_context[css-threegamearea] {
+                top: -6px
+            }
+            .three_game_area_context>div[css-threegamearea]:first-child {
+                top: 0
+            }
+            .three_game_area_context>div[css-threegamearea]:nth-child(2) {
+                top: 90px
+            }
+            .three_game_area_context>div[css-threegamearea]:nth-child(3) {
+                top: 180px
+            }
+            .three_game_area_line[css-threegamearea] {
+                position: relative;
+                top: -10px
+            }
+            .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                display: block;
+                position: absolute;
+                top: 90px;
+                border-radius: 1px;
+                width: 210px;
+                height: 2px;
+                background: #e3e3e5;
+                content: ""
+            }
+            .three_game_area_static .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_static .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                width: 227px
+            }
+        }
+
+        @media screen and (min-width:375px) {
+            .three_game_area>.three_game_area_header[css-threegamearea] {
+                font-weight: 700
+            }
+            .three_game_area_context[css-threegamearea] {
+                top: -6px
+            }
+            .three_game_area_context>div[css-threegamearea]:first-child {
+                top: 0
+            }
+            .three_game_area_context>div[css-threegamearea]:nth-child(2) {
+                top: 90px
+            }
+            .three_game_area_context>div[css-threegamearea]:nth-child(3) {
+                top: 180px
+            }
+            .three_game_area_line[css-threegamearea] {
+                position: relative;
+                top: -10px
+            }
+            .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                display: block;
+                position: absolute;
+                top: 90px;
+                border-radius: 1px;
+                width: 210px;
+                height: 2px;
+                background: #e3e3e5;
+                content: ""
+            }
+            .three_game_area_static .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_static .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                width: 227px
+            }
+        }
+
+        @media screen and (min-width:879px) {
+            .three_game_area>.three_game_area_header[css-threegamearea] {
+                font-weight: 700
+            }
+            .three_game_area_line[css-threegamearea] {
+                width: 348px
+            }
+            .three_game_area_context_detail[css-threegamearea] {
+                padding-top: 15px
+            }
+            .three_game_area_context_detail .context_title[css-threegamearea] {
+                margin-left: 20px
+            }
+            .three_game_area_context[css-threegamearea] {
+                height: 368px
+            }
+            .three_game_area_context_detail .context_title>div[css-threegamearea]:first-child {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 175px
+            }
+            .three_game_area_context_detail>a>div:first-child>img[css-threegamearea] {
+                width: 80px;
+                height: 80px
+            }
+            .three_game_area_context_detail[css-threegamearea] {
+                padding-right: 3px
+            }
+            .three_game_area_context_detail[css-threegamearea]:last-child {
+                padding-right: 90px !important
+            }
+            .three_game_area_line[css-threegamearea] {
+                position: relative;
+                top: 0
+            }
+            .three_game_area_context[css-threegamearea] {
+                top: 16px
+            }
+            .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                display: block;
+                position: absolute;
+                top: 100px;
+                border-radius: 1px;
+                width: 246px;
+                height: 2px;
+                background: #e3e3e5;
+                content: ""
+            }
+            .three_game_area_static .three_game_area_context>div:first-child .context_title[css-threegamearea]:after,
+            .three_game_area_static .three_game_area_context>div:nth-child(2) .context_title[css-threegamearea]:after {
+                width: 255px
+            }
+        }
+
+        @media screen and (max-width:844px) and (min-width:560px) and (min-height:300px) and (max-height:440px) {
+            .three_game_area[css-threegamearea] {
+                transform: scale(.7);
+                width: 341px;
+                left: -45px;
+                top: -47px;
+                height: 342px
+            }
+        }
+    </style>
+    <style>
+        .content[css-content] {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .content[css-content] .textStyle {
+            overflow-y: auto;
+            position: relative;
+            padding: 0 10px;
+            height: inherit;
+        }
+
+        .content[css-content] .content {
+            padding: 0 20px 10px 20px;
+            font-family: Poppins, serif;
+            color: rgb(55, 142, 245);
+        }
+
+        .content[css-content] .markdown {
+            word-break: break-word;
+            font-weight: bolder;
+            font-family: Helvetica;
+        }
+
+        .content[css-content] .markdown a {
+            text-decoration: underline;
+            color: rgb(55, 142, 245);
+        }
+
+        .content[css-content] .markdown h1 {
+            border-bottom: 1px solid #e3e3e5;
+            color: rgb(55, 142, 245);
+        }
+
+        .content[css-content] .markdown h2 {
+            color: #747474;
+        }
+
+        .content[css-content] .markdown p,
+        .content[css-content] .markdown li {
+            color: rgb(128, 144, 170);
+        }
+
+        .content[css-content] .textStyle::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        .content[css-content] .textStyle::-webkit-scrollbar-track {
+            border-radius: 2px;
+            background: #fff;
+        }
+
+        .content[css-content] .textStyle::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #bfbfbf;
+        }
+
+        .content[css-content] .textStyle::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+
+        .content[css-content] .onlyBoxShadow {
+            position: absolute;
+            left: 0;
+            top: -1px;
+            z-index: 1;
+            border-radius: 15px;
+            width: 95%;
+            height: 29px;
+            background: linear-gradient(rgba(255, 255, 255) 0, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .content[css-content] .onlyBoxShadowDown {
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            border-radius: 15px;
+            width: 95%;
+            height: 29px;
+            background: linear-gradient(rgba(255, 255, 255, 0) 0, rgb(255, 255, 255) 100%);
+        }
+
+        @media screen and (min-width: 104px) and (max-width: 878px) {
+            .content[css-content] .markdown h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+    <style>
+        @media screen and (min-width:764px) {
+            .footStyle[css-foot] {
+                display: grid;
+                --gridTemplateColumns: 7;
+                grid-template-areas: "in1 in1 in1 in1 in1 in1 in1 ";
+                grid-template-rows: repeat(1, 140px);
+                --cellSpacing: 16px;
+                grid-gap: var(--cellSpacing);
+                grid-template-columns: repeat(var(--gridTemplateColumns), 94px);
+                justify-content: center;
+                align-items: center
+            }
+            .div1[css-foot] {
+                grid-area: in1/in1/in1/in1;
+                background-color: rgba(228, 161, 15, 0)
+            }
+        }
+
+        @media screen and (min-width:544px) and (max-width:763px) {
+            .footStyle[css-foot] {
+                display: grid;
+                --gridTemplateColumns: 5;
+                grid-template-areas: "in1 in1 in1 in1 in1";
+                grid-template-rows: repeat(1, 140px);
+                --cellSpacing: 16px;
+                grid-gap: var(--cellSpacing);
+                grid-template-columns: repeat(var(--gridTemplateColumns), 94px);
+                justify-content: center;
+                align-items: center
+            }
+            .div1[css-foot] {
+                grid-area: in1/in1/in1/in1;
+                background-color: rgba(228, 161, 15, 0)
+            }
+        }
+
+        @media screen and (min-width:104px) and (max-width:543px) {
+            .footStyle[css-foot] {
+                display: grid;
+                --gridTemplateColumns: 3;
+                grid-template-areas: "in1 in1 in1";
+                grid-template-rows: repeat(1, 140px);
+                --cellSpacing: 16px;
+                grid-gap: var(--cellSpacing);
+                grid-template-columns: repeat(var(--gridTemplateColumns), 94px);
+                justify-content: center;
+                align-items: center
+            }
+            .div1[css-foot] {
+                grid-area: in1/in1/in1/in1;
+                background-color: rgba(228, 161, 15, 0)
+            }
+        }
+
+        .foot[css-foot] {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .footStyle[css-foot] {
+            position: relative;
+            margin-top: 22px;
+            padding-bottom: 80px;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 15px 64px 16px rgba(0, 0, 0, .15);
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: 400;
+            color: #747474 !important
+        }
+
+        .logoStyle[css-foot] {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            min-height: 50px
+        }
+
+        .logoStyle>p[css-foot] {
+            margin-top: 6px !important;
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .logoStyle>a[css-foot]:-webkit-any-link {
+            margin-top: 10px;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        .logoStyle>a>span[css-foot] {
+            font-family: Helvetica;
+            font-weight: 400;
+            color: #747474 !important
+        }
+
+        .linkText[css-foot] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #747474 !important
+        }
+
+        .linkText>a[css-foot]:-webkit-any-link {
+            margin-right: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #747474 !important
+        }
+
+        #selectLanguage>img[css-foot] {
+            margin: 0 0 2px 6px
+        }
+
+        .openSelectStyle[css-foot] {
+            position: absolute;
+            right: calc(50% - 150px);
+            bottom: 90%;
+            width: 200px
+        }
+    </style>
+    <style>
+        .backtop[css-backtop] {
+            background-color: rgba(0, 0, 0, .5);
+            right: 10px;
+            bottom: 100px;
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #409eff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 6px rgb(0 0 0 / 12%);
+            cursor: pointer;
+            z-index: 5;
+        }
+    </style>
+    <style>
+        .navLeft[css-nav] {
+            margin-left: 10px;
+            height: 100%
+        }
+
+        .navLogo[css-nav] {
+            font-weight: bold;
+            font-size: 32px;
+            text-overflow: ellipsis;
+            font-family: Helvetica;
+            color: #000;
+            line-height: 60px;
+            height: 100%
+        }
+
+        .navLayout[css-nav] {
+            display: flex;
+            top: 0;
+            z-index: 3;
+            height: 3rem;
+            transition: top .5s
+        }
+
+        .whiteBackground[css-nav] {
+            position: relative;
+            width: 100%
+        }
+
+    </style>
+    <style>
+        .ads_area[css-adsarea] {
+            overflow: hidden;
+            box-sizing: border-box
+        }
+
+        .ads_area[css-adsarea],
+        .ads_area>div[css-adsarea] {
+            width: 100%;
+            height: 100%
+        }
+
+        .ads_area>div[css-adsarea] {
+            position: relative
+        }
+
+        .ads_area_replace[css-adsarea] {
+            display: block;
+            position: absolute;
+            z-index: 2;
+            /* left: 16px;
+            top: 16px */
+            left: 0px;
+            top: 0px
+        }
+
+        .ads_area[css-adsarea] .ads_area_replace>img[css-adsarea] {
+            border-radius: 15px
+        }
+
+        .ads_area[css-adsarea] ins.adsbygoogle[data-ad-status=filled] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ads_area[css-adsarea] ins.adsbygoogle a[css-adsarea] {
+            display: none !important
+        }
+
+        .ads_area[css-adsarea] ins.adsbygoogle[data-ad-status=unfilled] a[css-adsarea] {
+            display: block !important
+        }
+    </style>
+</head>
+
+<body>
+    <div id="globalMain" class="globalMain globalImg" css-index>
+        <div class="mainStyle" css-index>
+            <div id="indexStyle" class="indexStyle" css-index css-index>
+                <div id="navLayout" class="navLayout " css-nav>
+                    <div id="whiteBackground" class="whiteBackground" css-nav>
+                        <div id="navigationStyle" class="navigationStyle" css-nav>
+                            <div class="navLeft" css-nav>
+                                <a class="navLogo" css-nav href="./"><span style="color:red;">F</span>reeGameHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="cardLayoutDiv" class="cardLayout" style="margin: 15px 0 25px 0; justify-content: center" css-index>
+                </div>
+            </div>
+        </div>
+        <div class="foot" css-foot>
+            <div class="footStyle" css-foot>
+                <div class="div1" css-foot>
+                    <div class="linkText" style="height: 10px; line-height: 10px" css-foot>
+                        <a href="./terms_of_service.html" css-foot target="_blank">Terms</a>
+                        <a href="./privacy_policy.html" css-foot target="_blank">Privacy</a>
+                        <a href="./cookies_policy.html" css-foot target="_blank">Cookies</a>
+                    </div>
+                    <div class="logoStyle" css-foot>
+                        <p css-foot>
+                            © 2024 freegamehub.top
+                        </p>
+                    </div>
+                </div>
+                <div class="openSelectStyle" css-foot>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script id="cardTemplate" type="text/template">
+        <div class="card">
+            <div class="nine_grid_area" css-ninegridarea displayOrder="0">
+                <div css-ninegridarea>
+                    {nineGridItemContent}
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="nineGridItemTemplate" type="text/template">
+        <div class="clickEnlarge" css-ninegridarea>
+            <a href="{gameUrl}" class="css-ninegridarea" target="_self" onclick="trackGameClick('{gameUrl}')">
+                <img css-ninegridarea data-src="{gamePic}" src="{gamePic}" lazy="loaded" alt="Traffic Intersection">
+            </a>
+        </div>
+    </script>
+    <script>
+        function trackGameClick(gameUrl) {
+            gtag("event", "gameselect", {});//选择游戏
+            // 确保TikTok像素代码已加载
+            if (window.ttq) {
+                // 触发追踪事件
+                window.ttq.track('ClickButton', {
+                    // 在这里添加您想要追踪的任何数据
+                    gameUrl: gameUrl
+                });
+            }
+        }
+    </script>
+
+    <script id="googleAdsTemplate" type="text/template">
+        <div class="card">
+            {adsbygoogleScriptContent}
+            <!-- 展示广告1 -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-4694110216243855"
+                 data-ad-slot="8338320676"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            {adsbygoogleBottomScriptContent}
+        </div>
+    </script>
+
+    <script id="googleAdsTemplatePopular" type="text/template">
+        <div class="three_game_area_context_detail_ads">
+            {adsbygoogleScriptContent}
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-fb+5w+4e-db+86"
+                 data-ad-client="ca-pub-4694110216243855"
+                 data-ad-slot="3086654102"></ins>
+            {adsbygoogleBottomScriptContent}
+        </div>
+    </script>
+
+    <script id="popularGameTemplate" type="text/template">
+        <div class="card">
+            <div class="three_game_area" css-threegamearea displayOrder="9">
+                <div class="three_game_area_header" css-threegamearea>Popular games</div>
+                <div class="three_game_area_line" css-threegamearea></div>
+                <div class="three_game_area_context" css-threegamearea>
+                    <div class="threeGameAreaContextDetailAdsCls">
+                        {threeGameAreaContextDetailAdsContent}
+                    </div>
+                    <!--
+                    <div css-threegamearea>
+                        <div class="three_game_area_context_detail" css-threegamearea>
+                            <a href="/game.html?game=/game/MoveItAll/" class="clickEnlarge" style="display: flex;" target="_self">
+                                <div css-threegamearea>
+                                    <img css-threegamearea data-src="https://play-lh.googleusercontent.com/sITBmmZFgPL1jqJQ71_4ZxtOS28VrrWzaIOJY-D50VUAEW7WYHVqpEKQpOidzTj3Eyiq=w240-h480-rw" src="https://play-lh.googleusercontent.com/sITBmmZFgPL1jqJQ71_4ZxtOS28VrrWzaIOJY-D50VUAEW7WYHVqpEKQpOidzTj3Eyiq=w240-h480-rw"
+                                         lazy="loading" alt="Move It All">
+                                </div>
+                                <div class="context_title" css-threegamearea>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea>Move It All</div>
+                                        <div css-threegamearea>io game</div>
+                                    </div>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea class="playtext">Play</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    -->
+                    <div css-threegamearea>
+                        <div class="three_game_area_context_detail" css-threegamearea>
+                            <a href="/game.html?game=/game/MoveItAll/" class="clickEnlarge" style="display: flex;" target="_self">
+                                <div css-threegamearea>
+                                    <img css-threegamearea data-src="https://play-lh.googleusercontent.com/sITBmmZFgPL1jqJQ71_4ZxtOS28VrrWzaIOJY-D50VUAEW7WYHVqpEKQpOidzTj3Eyiq=w240-h480-rw" src="https://play-lh.googleusercontent.com/sITBmmZFgPL1jqJQ71_4ZxtOS28VrrWzaIOJY-D50VUAEW7WYHVqpEKQpOidzTj3Eyiq=w240-h480-rw"
+                                         lazy="loading" alt="Move It All">
+                                </div>
+                                <div class="context_title" css-threegamearea>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea>Move It All</div>
+                                        <div css-threegamearea>io game</div>
+                                    </div>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea class="playtext">Play</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div css-threegamearea>
+                        <div class="three_game_area_context_detail" css-threegamearea>
+                            <a href="/game.html?game=/game/ABCMergeFight/" class="clickEnlarge" style="display: flex;" target="_self">
+                                <div css-threegamearea>
+                                    <img css-threegamearea data-src="https://play-lh.googleusercontent.com/9NVb0NJQNJRBq-15aXibjKnm2VAZK6Wbpk_nSKBAyWefTelYgKp0Eun9WTtlvXOAgA=w240-h480-rw" src="https://play-lh.googleusercontent.com/9NVb0NJQNJRBq-15aXibjKnm2VAZK6Wbpk_nSKBAyWefTelYgKp0Eun9WTtlvXOAgA=w240-h480-rw"
+                                         lazy="loading" alt="ABC Merge Fight">
+                                </div>
+                                <div class="context_title" css-threegamearea>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea>ABC Merge Fight</div>
+                                        <div css-threegamearea>Cute ABC</div>
+                                    </div>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea class="playtext">Play</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!--
+                    <div css-threegamearea>
+                        <div class="three_game_area_context_detail" css-threegamearea>
+                            <a href="/game.html?game=/game/ParkingChaos/" class="clickEnlarge" style="display: flex;" target="_self">
+                                <div css-threegamearea>
+                                    <img css-threegamearea data-src="https://play-lh.googleusercontent.com/N8_jQqTf1oYmyHUzxQ_KGOO5ZAspTinFREYPIWhzzDa-88D-IINoNRBphSzs4M792v4=w240-h480-rw" src="https://play-lh.googleusercontent.com/N8_jQqTf1oYmyHUzxQ_KGOO5ZAspTinFREYPIWhzzDa-88D-IINoNRBphSzs4M792v4=w240-h480-rw"
+                                         lazy="loading" alt="Parking Chaos">
+                                </div>
+                                <div class="context_title" css-threegamearea>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea>Parking Chaos</div>
+                                        <div css-threegamearea>Manage the car</div>
+                                    </div>
+                                    <div css-threegamearea>
+                                        <div css-threegamearea class="playtext">Play</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!--<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="d7769b18568f850a41b78dbf-|49" defer></script>-->
+</body>
+
+</html>
