@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Bubble Journey</title>
+
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-orientation" content="portrait">
+
+
+    <meta name="x5-page-mode" content="app">
+
+
+    <link rel="stylesheet" type="text/css" href="style-mobile.6e9cd.css" />
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading" style="position:absolute;top:0;left:0;background-color:#fff;width:100%;height:100%;display: flex;justify-content: center;align-items: center;z-index: 999;">
+
+        <script type="text/javascript" style="display:none">
+            //<![CDATA[
+            window.__mirage2 = {
+                petok: "V9AS0br1kpUWqZU2v1GRK6v2aj0SxSPYZJDwM9gL_2A-31536000-0"
+            };
+            //]]>
+        </script>
+        <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/04b3eb47/cloudflare-static/mirage2.min.js"></script>
+        <img data-cfsrc="Bubble_Journey.jpg" id="prgLogo" data-cfstyle="width: 10rem;height: 10rem;border-radius: 50%;position: absolute;" style="display:none;visibility:hidden;" /><noscript><img src="Bubble_Journey.jpg" id="prgLogo" style="width: 10rem;height: 10rem;border-radius: 50%;position: absolute;" /></noscript>
+        <div class="loader" style="border-width: 0.35rem;border-style: solid;border-color: gainsboro gainsboro dodgerblue gainsboro;border-radius: 50%;display: block;width: 10rem;height: 10rem; animation: rotate 1.5s linear infinite;"></div>
+    </div>
+    <canvas id="GameCanvas" oncontextmenu="if (!window.__cfRLUnblockHandlers) return false; event.preventDefault()" tabindex="0" data-cf-modified-27e912e5082244f1d01dc33b-></canvas>
+    <script src="CoinApp1.0.0.js" type="27e912e5082244f1d01dc33b-text/javascript"></script>
+    <script type="27e912e5082244f1d01dc33b-text/javascript">
+        const kInterval = 100;
+        var progress = 0;
+        var timer = 0;
+        var tweenTo = function(toVal) {
+            const kDur = 2000;
+            var step = (toVal - progress) / kDur * kInterval;
+            let elapsed = 0;
+            if (timer) {
+                clearInterval(timer);
+            }
+            timer = setInterval(function() {
+                elapsed += kInterval;
+                progress += step;
+                console.log(progress);
+                if (elapsed >= kDur) {
+                    clearInterval(timer);
+                    timer = 0;
+                }
+            }, kInterval);
+        }
+        //加载js
+        var loadSingleScript = function(src, callback) {
+            var s = document.createElement('script');
+            s.async = false;
+            s.src = src;
+            s.charset = 'utf-8';
+            s.addEventListener('load', function() {
+                s.parentNode.removeChild(s);
+                s.removeEventListener('load', arguments.callee, false);
+                callback();
+            }, false);
+            document.body.appendChild(s);
+        };
+
+        function afterSettingJsLoaded() {
+            tweenTo(20); //载入settings.js后的进度值
+            loadSingleScript("main.3a160.js", function() {});
+        }
+
+        function afterFbJsLoaded() {
+            tweenTo(5);
+            tweenTo(10); //设置初始化后的进度值
+            loadSingleScript("src/settings.c360a.js", afterSettingJsLoaded);
+        }
+    </script>
+
+    <script src="./thinkingdata.umd.min.d2ad4.js" type="27e912e5082244f1d01dc33b-text/javascript"></script>
+    <script type="27e912e5082244f1d01dc33b-text/javascript">
+        // 创建 SDK 配置对象
+        var config = {
+            appId: 'bb2cf89074004128a3982c1be3079393',
+            serverUrl: 'https://rtsyx.higgsyx.com',
+            send_method: 'ajax',
+            showLog: false,
+            autoTrack: {
+                appShow: true, // 自动采集 ta_mg_show
+                appHide: true // 自动采集 ta_mg_hide
+            }
+        };
+
+        // 将 SDK 实例赋给全局变量 ta，或者其他您指定的变量
+        window.ta = thinkingdata;
+
+        // 用配置对象初始化 SDK
+        ta.init(config);
+
+        // 之后您就可以使用 ta 来上报事件了
+        ta.track('click_icon');
+        ta.userSetOnce({
+            channel: "bubblejourney_fbig"
+        });
+        afterFbJsLoaded();
+    </script>
+
+
+    <script src="rocket-loader.min.js" data-cf-settings="27e912e5082244f1d01dc33b-|49" defer></script>
+</body>
+<script src="huhu.js" type="27e912e5082244f1d01dc33b-text/javascript"></script>
+<script type="27e912e5082244f1d01dc33b-text/javascript">
+    window.cy_Sdk.ga(window.cy_Sdk.LOADING_BEGIN);
+    var load_over = 0;
+
+    function HUHU_setLoadingProgress(per) {
+        if (!load_over) {
+            if (per == 100) {
+                load_over = 1;
+                setTimeout(() => {
+                    window.cy_Sdk && (window.cy_Sdk.ga(window.cy_Sdk.LOADING_END), window.cy_Sdk.reportPlayTime(), window.cy_Sdk.ga(window.cy_Sdk.GAME_PAGE));
+                    document.body.removeChild(document.getElementById("loading"))
+                    HUHU_loading_over();
+                }, 3000);
+
+            }
+        }
+    }
+</script>
+
+</html>

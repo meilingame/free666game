@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link id="manifest" rel="manifest" href="/assets/other/webmanifest.json" />
+    <title>Play Freegame and Have Fun</title>
+    <meta name="keywords" content="Online games, free games, h5 games, free online games, browser games, mobile games, popular games, puzzle games, action games, adventure games, sport games, arcade games, casual games, racing games, ball games, shooting games, gun games" />
+    <meta name="description" content="Play the best games on freegamehub.top. Including sport games, arcade games and more. Instantly play online for free!">
+    <!-- Google 统计 (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65V24K4EGF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-65V24K4EGF');
+    </script>
+    <!-- TikTok ads -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+            ttq.load('tk_code_tihuan');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok ads end -->
+    <link rel="stylesheet" href="/ads/assets/styles.css">
+</head>
+<body>
+    <!-- 谷歌Adsense广告代码 -->    
+    <div id="adsense-container">
+        <!-- Adsense代码 -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4694110216243855"
+        crossorigin="anonymous"></script>
+        <!-- freegamehub-展示广告1 -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-4694110216243855"
+            data-ad-slot="8338320676"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <div id="nav-container">
+        <a class="navLogo"><span style="color:red;">F</span>reeGameHub</a>
+    </div>
+    <div class="container">
+        <div class="gallery">
+            <a href="/game.html?game=/game/MoveItAll/"><img src="/ads/pic/1.png" alt="Image 1"></a>
+            <a href="/game.html?game=/game/ABCMergeFight/"><img src="/ads/pic/2.png" alt="Image 2"></a>
+            <a href="/game.html?game=/game/ParkingChaos/"><img src="/ads/pic/3.png" alt="Image 3"></a>
+            <a href="/game.html?game=/game/PursuitGunner/"><img src="/ads/pic/4.png" alt="Image 4"></a>
+            <a href="/game.html?game=/game/PunchDuel/"><img src="/ads/pic/5.png" alt="Image 5"></a>
+            <a href="/game.html?game=/game/SheepyGo/"><img src="/ads/pic/6.png" alt="Image 6"></a>
+            <a href="/game.html?game=/game/BottleBash/"><img src="/ads/pic/7.png" alt="Image 7"></a>
+            <a href="/game.html?game=/game/SafeDriveSaga/"><img src="/ads/pic/8.png" alt="Image 8"></a>
+            <a href="/game.html?game=/game/CircleClear/"><img src="/ads/pic/9.png" alt="Image 9"></a>
+            <a href="/game.html?game=/game/SeamlessCut/"><img src="/ads/pic/10.png" alt="Image 10"></a>
+            <a href="/game.html?game=/game/AntDraw/"><img src="/ads/pic/11.png" alt="Image 11"></a>
+            <a href="/game.html?game=/game/ArtisticRoll/"><img src="/ads/pic/12.png" alt="Image 12"></a>
+            <a href="/game.html?game=/game/MazeBurglar/"><img src="/ads/pic/13.png" alt="Image 13"></a>
+            <a href="/game.html?game=/game/MorphingCube/"><img src="/ads/pic/14.png" alt="Image 14"></a>
+            <a href="/game.html?game=/game/OilTycoonDash/"><img src="/ads/pic/15.png" alt="Image 15"></a>
+        </div>
+        <a class="more-btn" href="/">More Game</a>
+    </div>
+    <script>
+        // 在这里添加JavaScript代码
+        // 监听iframe点击的函数
+        var IframeOnClick = {
+            istrack: null,
+            resolution: 200,
+            iframes: [],
+            interval: null,
+
+            Iframe: function(element, cb) {
+                this.element = element;
+                this.cb = cb;
+                this.hasTracked = false;
+            },
+
+            track: function(element, cb) {
+                this.iframes.push(new this.Iframe(element, cb));
+                if (!this.interval) {
+                    var _this = this;
+                    this.interval = setInterval(function() {
+                        _this.checkClick();
+                    }, this.resolution);
+                }
+            },
+
+            checkClick: function() {
+                if (document.activeElement) {
+                    var activeElement = document.activeElement;
+                    for (var i in this.iframes) {
+                        if (activeElement === this.iframes[i].element && !this.iframes[i].hasTracked) {
+                            this.iframes[i].cb.apply(window, []);
+                            this.iframes[i].hasTracked = true; 
+                        }
+                    }
+                }
+            }
+        };
+
+        window.onload = function() {
+            var adsenseIframe = document.getElementById('adsense-container').getElementsByTagName('iframe')[0];
+            IframeOnClick.track(adsenseIframe, function() {
+                console.log('点击了iframe区域');
+                IframeOnClick.istrack = true;
+            });
+        };
+
+        var hiddenProperty = 'hidden' in document ? 'hidden' : 'webkitHidden' in document ? 'webkitHidden' : 'mozHidden' in document ? 'mozHidden' : null;
+        var visibilityChangeEvent = hiddenProperty ? hiddenProperty.replace(/hidden/i, 'visibilitychange') : null;
+
+        if (visibilityChangeEvent) {
+            document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+        } else {
+            console.log('页面不支持 visibilitychange 事件');
+        }
+
+        function onVisibilityChange() {
+            if (document[hiddenProperty]) { // 修改2: 当页面非激活时执行
+                console.log('页面非激活');
+                if (IframeOnClick.istrack) {
+                    if (window.ttq) {
+                        window.ttq.track('CompleteRegistration', {
+                            contents:[{
+                                content_id:"adsensead",
+                                content_type:"product",
+                            }]
+                        });
+                    }
+                    console.log('good job');
+                }
+            } else { // 修改3: 当页面激活时执行
+                console.log('页面激活');
+                IframeOnClick.istrack = null; // 修改4: 当页面激活时设置istrack为null
+            }
+        }
+
+/*         // 获取adsense-container元素
+        var adsenseContainer = document.getElementById('adsense-container');
+        console.log('Adsense容器', adsenseContainer);
+
+        // 添加点击事件监听器
+        adsenseContainer.addEventListener('click', function(event) {
+            // 打印点击位置
+            console.log('点击位置：', event.clientX, event.clientY);
+        }); */
+
+        
+
+
+        // 获取 adsense-container 元素
+        var adsenseContainer = document.getElementById('adsense-container');
+
+        // 在 adsense-container 上添加点击事件监听器
+        adsenseContainer.addEventListener('click', function(event) {
+            console.log('点击位置：', event.clientX, event.clientY);
+            // 检查事件的目标元素是否为 iframe
+            if (event.target.tagName === 'IFRAME') {
+                // 执行与 iframe 点击相关的事件处理逻辑
+                console.log('iframe点击位置：', event.clientX, event.clientY);
+                console.log('IFRAME clicked:', event.target.src);
+                // ... 进行后续操作 ...
+            }
+        });
+
+
+
+
+    </script>
+</body>
+</html>

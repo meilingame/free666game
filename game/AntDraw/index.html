@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Ant Draw</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <!---->
+    <style>
+      .adsense-ad {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1001; /* 确保广告在canvas上方 */
+      }
+      .example_responsive_1 { width: 320px; height: 500px; }
+      @media(min-width: 500px) { .example_responsive_1 { width: 468px; height: 468px; } }
+      @media(min-width: 800px) { .example_responsive_1 { width: 580px; height: 580px; } }
+      .centered-div {
+          display: none; /* 默认隐藏广告容器 */
+          z-index: 1000;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          transform: translateY(50%); /* 垂直居中 */
+          width: 100%; /* 宽度为页面宽度 */
+          height: 50vh; /* 高度为页面高度的100% */
+          /* 根据需要添加其他样式 */
+          /*background-color: #f0f0f0;*/ /* 示例背景色 */
+          /*padding: 20px;*/ /* 为了内容不会紧贴着边框 */
+          box-sizing: border-box; /* 防止padding影响宽度 */
+          /*position: relative;*/ /* 为内部绝对定位元素提供定位上下文 */
+      }
+
+      .close-button {
+          display: none;
+          position: absolute; /* 绝对定位 */
+          top: -25px; /* 距离顶部10px */
+          right: 17px; /* 距离右边10px */
+          background-color: rgba(0, 0, 0, 0.6); /* 示例背景色 */
+          border: none; /* 无边框 */
+          cursor: pointer; /* 鼠标悬停时变为手型 */
+          /*padding: 5px 10px;*/ /* 内边距 */
+          z-index: 1002;
+          width: 24px;
+          height: 24px;
+      }
+      .countdownText {
+        position: absolute; /* 绝对定位 */
+        top: -25px; /* 距离顶部10px */
+        right: 10px;
+        color: #ccc;
+      }
+      .fullscreen-bg {
+        display: none; /* 默认隐藏背景层 */
+        position: fixed; /* 固定定位，全屏显示 */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(204, 204, 204, 0.5); /* 黑色半透明背景 */
+        z-index: 999; /* 确保背景层在广告和关闭按钮下方 */
+        backdrop-filter: blur(5px); /* 添加模糊效果 */
+      }
+  </style>
+  <script type="text/javascript" src="/assets/js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript">
+      var adsbygoogleScript = "<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4694110216243855\" crossorigin=\"anonymous\"><\/script>";
+      var adsbygoogleBottomScript = "<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>";
+
+      function closeAds() {
+          document.getElementById('myDiv').style.display = "none";
+
+          var fullscreenBgElem = document.querySelector('.fullscreen-bg');
+          fullscreenBgElem.style.display = "none";
+      }
+
+      function showAdsCommon() {
+          var fullscreenBgElem = document.querySelector('.fullscreen-bg');
+          fullscreenBgElem.style.display = "block";
+          document.getElementById('myDiv').style.display = "block";
+
+          var googleAdsTemplateHtml = document.getElementById("adsTemplate").innerHTML;
+          googleAdsTemplateHtml = googleAdsTemplateHtml.replace(/{adsbygoogleScriptContent}/g, adsbygoogleScript);
+          googleAdsTemplateHtml = googleAdsTemplateHtml.replace(/{adsbygoogleBottomScriptContent}/g, adsbygoogleBottomScript);
+
+          // 正常的 innserHTML 不会执行 script, 用 jQuery 包来执行含有 script 的代码
+          $("#myDiv").html(googleAdsTemplateHtml);
+      }
+
+      // 无倒计时函数
+      function showAdsWithoutCountDown() {
+          showAdsCommon();
+          document.getElementById("countdownDiv").style.display = "none";
+          document.getElementById("closeButton").style.display = "block";
+      }
+
+      function showAds() {
+          showAdsCommon();
+
+          // 开始倒计时,
+          var countdownSpan = document.getElementById('countdownSpan');
+
+          // 初始倒计时时间（秒）
+          var countdownNumber = parseInt(countdownSpan.textContent, 10);
+
+          // 倒计时函数
+          function countdown() {
+              // 如果倒计时大于0，则更新倒计时并继续
+              if (countdownNumber > 0) {
+                  // 更新倒计时数字
+                  countdownSpan.textContent = countdownNumber;
+                  // 减少1秒
+                  countdownNumber--;
+                  // 1秒后再次调用 countdown 函数
+                  setTimeout(countdown, 1000);
+              } else {
+                  // 当倒计时结束时，你可以在这里添加其他代码，比如关闭某个元素
+//                      console.log('Countdown finished!');
+                  document.getElementById("countdownDiv").style.display = "none";
+                  document.getElementById("closeButton").style.display = "block";
+              }
+          }
+
+          countdown()
+      }
+  </script>
+
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2360323744313127');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2360323744313127&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+<script>
+  var tk_code="tk_code_tihuan";
+var gg_code="G-65V24K4EGF";
+
+//TikTok 基础代码
+    !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+
+    ttq.load(tk_code);
+    ttq.page();
+    }(window, document, 'ttq');
+
+//Google 基础代码
+    var script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id='+gg_code;
+    script.async = true;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', gg_code);
+
+//游戏里开始游戏
+function adevent_gamestart()
+{
+    ttq.track('ViewContent', {});
+    gtag("event", "tutorial_begin");
+    fbq('track', 'ViewContent'); //游戏里开始游戏
+    console.log("adevent_gamestart click ok");
+}
+//完成一局
+function adevent_competeone()
+{
+    ttq.track('AddPaymentInfo', {});
+    gtag("event", "level_end", {});
+    fbq('track', 'AddPaymentInfo'); //游戏里完成一局
+    console.log("adevent_competeone click ok");
+}
+//点击激励广告按钮
+function adevent_clickreward()
+{
+    ttq.track('AddToCart', {});//try pay，尝试支付
+    gtag("event", "begin_checkout", {});//try pay，尝试支付
+    fbq('track', 'AddToCart'); //游戏里点击激励广告按钮
+    console.log("adevent_clickreward click ok");
+}
+
+</script>
+
+    <!---->
+  </head>
+  <body>
+    <!---->
+    <!-- <button id="showAdBtn" onclick="showAds()">Show Ads</button>
+    <button onclick="showAdsWithoutCountDown()">Show Ads Without Countdown</button> -->
+  
+      <script type="text/template" id="adsTemplate">
+        {adsbygoogleScriptContent}
+        <!-- AdSense 广告单元 -->
+        <ins class="adsbygoogle example_responsive_1 adsense-ad"
+             style="display:block"
+             data-ad-client="ca-pub-4694110216243855"
+             data-ad-slot="5973147255"
+             data-ad-format="auto"
+             data-full-width-responsive="true">
+          <!-- 关闭按钮 -->
+          <div id="countdownDiv" class="countdownText">
+            Close after <span id="countdownSpan">5</span> seconds
+          </div>
+          <div id="closeButton" class="close-button" onclick="closeAds()">
+            <svg viewBox="0 0 48 48" fill="#FFF">
+              <path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"></path>
+              <path d="M0 0h48v48H0z" fill="none"></path>
+            </svg>
+          </div>
+        </ins>
+        {adsbygoogleBottomScriptContent}
+      </script>
+  
+      <div class="fullscreen-bg"></div> <!-- 全屏背景层 -->
+      <div id="myDiv" class="centered-div">
+      </div>
+    <!---->
+   
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=580 height=928></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer" style="height:0;overflow: hidden;">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Ant Draw</div>
+      </div>
+    </div>
+    
+    <script>
+
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/AntDraw_web2.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/AntDraw_web2.data",
+        frameworkUrl: buildUrl + "/AntDraw_web2.framework.js",
+        codeUrl: buildUrl + "/AntDraw_web2.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "rongzong",
+        productName: "Ant Draw",
+        productVersion: "2.0",
+        showBanner: unityShowBanner,
+      };
+
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+        canvas.style.width = "580px";
+        canvas.style.height = "928px";
+      }
+
+      loadingBar.style.display = "block";
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
