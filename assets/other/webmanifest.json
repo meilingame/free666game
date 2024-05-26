@@ -2,16 +2,16 @@
     "background_color": "#fff",
     "theme_color": "#fff",
     "orientation": "any",
-    "description": "play iMetaJoy",
+    "description": "play Free666game",
     "display": "standalone",
     "icons": [
       {
-        "src": "/assets/images/imetajoy.png",
+        "src": "/assets/images/icon.png",
         "sizes": "192x192",
         "type": "image/png"
       }
     ],
-    "name": "iMetaJoy",
-    "short_name": "iMetaJoy",
+    "name": "Free666game",
+    "short_name": "Free666game",
     "start_url": "/?from=homescreen"
   }  
